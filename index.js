@@ -47,9 +47,14 @@ class Autocomplete extends Component {
      */
     listContainerStyle: ViewPropTypes.style,
     /**
-     * These style will be applied to the result list.
+     * These styles will be applied to the result list.
      */
     listStyle: ListView.propTypes.style,
+    /**
+     * These styles will be passed in the `contentContainerStyle` prop of
+     * the results ListView.
+     */
+    listContentContainerStyle: ListView.propTypes.style,
     /**
      * `onShowResults` will be called when list is going to
      * show/hide results.
@@ -125,6 +130,7 @@ class Autocomplete extends Component {
     const { dataSource } = this.state;
     const {
       listStyle,
+      listContentContainerStyle,
       renderItem,
       renderSeparator,
       keyboardShouldPersistTaps,
@@ -142,6 +148,7 @@ class Autocomplete extends Component {
         onEndReached={onEndReached}
         onEndReachedThreshold={onEndReachedThreshold}
         style={[styles.list, listStyle]}
+        contentContainerStyle={listContentContainerStyle}
       />
     );
   }
